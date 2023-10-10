@@ -1,0 +1,283 @@
+# Copyright (c) 2022 Argentum Systems Ltd.
+# SPDX-License-Identifier: Apache-2.0
+#
+# Sources:
+# - SAMR30_DS70005302A
+#
+# Pin codes:
+#
+# - 32      pins: e
+# - 48      pins: g
+#
+# SoC Revision (variant) supported:
+#
+# - SAMR30
+# - A = Default Variant
+
+model: atmel,sam
+
+family: r30
+
+map: SAM_PINMUX
+
+series: [r30]
+
+variants:
+  - pincode: e
+    series: [r30]
+  - pincode: g
+    series: [r30]
+
+pins:
+  pa00:
+    pincodes: [g]
+    periph:
+      - [a, eic, extint0]
+      - [d, sercom1, pad0]
+      - [e, tcc2, wo0]
+  pa01:
+    pincodes: [g]
+    periph:
+      - [a, eic, extint1]
+      - [d, sercom1, pad1]
+      - [e, tcc2, wo1]
+  pa04:
+    pincodes: [g]
+    periph:
+      - [a, eic, extint4]
+      - [b, adc, ain4]
+      - [b, ac, ain0]
+      - [d, sercom0, pad0]
+      - [e, tcc0, wo0]
+      - [i, ccl0, in0]
+  pa05:
+    pincodes: [g]
+    periph:
+      - [a, eic, extint5]
+      - [b, adc, ain5]
+      - [b, ac, ain1]
+      - [d, sercom0, pad1]
+      - [e, tcc0, wo1]
+      - [i, ccl0, in1]
+  pa06:
+    pincodes: [e, g]
+    periph:
+      - [a, eic, extint6]
+      - [b, adc, ain6]
+      - [b, ac, ain2]
+      - [b, ptc, y4]
+      - [d, sercom0, pad2]
+      - [e, tcc1, wo0]
+      - [i, ccl0, in2]
+  pa07:
+    pincodes: [e, g]
+    periph:
+      - [a, eic, extint7]
+      - [b, adc, ain7]
+      - [b, ac, ain3]
+      - [d, sercom0, pad3]
+      - [e, tcc1, wo1]
+      - [i, ccl0, out]
+  pa08:
+    pincodes: [e, g]
+    periph:
+      - [a, eic, nmi]
+      - [b, adc, ain16]
+      - [b, ptc, x0]
+      - [b, ptc, y6]
+      - [c, sercom0, pad0]
+      - [d, sercom2, pad0]
+      - [e, tcc0, wo0]
+      - [f, tcc1, wo2]
+      - [i, ccl1, in0]
+  pa09:
+    pincodes: [e, g]
+    periph:
+      - [a, eic, extint9]
+      - [b, adc, ain17]
+      - [b, ptc, x1]
+      - [b, ptc, y7]
+      - [c, sercom0, pad1]
+      - [d, sercom2, pad1]
+      - [e, tcc0, wo1]
+      - [f, tcc1, wo3]
+      - [i, ccl1, in1]
+  pa12:
+    pincodes: [g]
+    periph:
+      - [a, eic, extint12]
+      - [c, sercom2, pad0]
+      - [d, sercom4, pad0]
+      - [e, tcc2, wo0]
+      - [f, tcc0, wo6]
+      - [h, ac, cmp0]
+  pa13:
+    pincodes: [g]
+    periph:
+      - [a, eic, extint13]
+      - [c, sercom2, pad1]
+      - [d, sercom4, pad1]
+      - [e, tcc2, wo1]
+      - [f, tcc0, wo7]
+      - [h, ac, cmp1]
+  pa14:
+    pincodes: [e, g]
+    periph:
+      - [a, eic, extint14]
+      - [c, sercom2, pad2]
+      - [d, sercom4, pad2]
+      - [e, tc4, wo0]
+      - [f, tcc0, wo4]
+      - [h, gclk, io0]
+  pa15:
+    pincodes: [e, g]
+    periph:
+      - [a, eic, extint15]
+      - [c, sercom2, pad3]
+      - [d, sercom4, pad3]
+      - [e, tc4, wo1]
+      - [f, tcc0, wo5]
+      - [h, gclk, io1]
+  pa16:
+    pincodes: [e, g]
+    periph:
+      - [a, eic, extint0]
+      - [b, ptc, x4]
+      - [c, sercom1, pad0]
+      - [d, sercom3, pad0]
+      - [e, tcc2, wo0]
+      - [f, tcc0, wo6]
+      - [h, gclk, io2]
+      - [i, ccl0, in0]
+  pa17:
+    pincodes: [e, g]
+    periph:
+      - [a, eic, extint1]
+      - [b, ptc, x5]
+      - [c, sercom1, pad1]
+      - [d, sercom3, pad1]
+      - [e, tcc2, wo1]
+      - [f, tcc0, wo7]
+      - [h, gclk, io3]
+      - [i, ccl0, in1]
+  pa18:
+    pincodes: [e, g]
+    periph:
+      - [a, eic, extint2]
+      - [b, ptc, x6]
+      - [c, sercom1, pad2]
+      - [d, sercom3, pad2]
+      - [e, tc4, wo0]
+      - [f, tcc0, wo2]
+      - [h, ac, cmp0]
+      - [i, ccl0, in2]
+  pa19:
+    pincodes: [e, g]
+    periph:
+      - [a, eic, extint3]
+      - [b, ptc, x7]
+      - [c, sercom1, pad3]
+      - [d, sercom3, pad3]
+      - [e, tc4, wo1]
+      - [f, tcc0, wo3]
+      - [h, ac, cmp1]
+      - [i, ccl0, out]
+  pa22:
+    pincodes: [g]
+    periph:
+      - [a, eic, extint6]
+      - [b, ptc, x10]
+      - [c, sercom3, pad0]
+      - [d, sercom5, pad0]
+      - [e, tc0, wo0]
+      - [f, tcc0, wo4]
+      - [h, gclk, io6]
+      - [i, ccl2, in0]
+  pa23:
+    pincodes: [g]
+    periph:
+      - [a, eic, extint7]
+      - [b, ptc, x11]
+      - [c, sercom3, pad1]
+      - [d, sercom5, pad1]
+      - [e, tc0, wo1]
+      - [f, tcc0, wo5]
+      - [g, usb, sof]
+      - [h, gclk, io7]
+      - [i, ccl2, in1]
+  pa24:
+    pincodes: [e, g]
+    periph:
+      - [a, eic, extint12]
+      - [c, sercom3, pad2]
+      - [d, sercom5, pad2]
+      - [e, tc1, wo0]
+      - [f, tcc1, wo2]
+      - [g, usb, dm]
+      - [i, ccl2, in2]
+  pa25:
+    pincodes: [e, g]
+    periph:
+      - [a, eic, extint13]
+      - [c, sercom3, pad3]
+      - [d, sercom5, pad3]
+      - [e, tc1, wo1]
+      - [f, tcc1, wo3]
+      - [g, usb, dp]
+      - [i, ccl2, out]
+  pb22:
+    pincodes: [g]
+    periph:
+      - [a, eic, extint6]
+      - [d, sercom5, pad2]
+      - [h, gclk, io0]
+      - [i, ccl0, in0]
+  pb23:
+    pincodes: [g]
+    periph:
+      - [a, eic, extint7]
+      - [d, sercom5, pad3]
+      - [h, gclk, io1]
+      - [i, ccl0, out]
+  pa27:
+    pincodes: [e, g]
+    periph:
+      - [a, eic, extint15]
+      - [h, gclk, io0]
+  pa28:
+    pincodes: [e, g]
+    periph:
+      - [a, eic, extint8]
+      - [h, gclk, io0]
+  pa30:
+    pincodes: [e, g]
+    periph:
+      - [a, eic, extint10]
+      - [d, sercom1, pad2]
+      - [e, tcc1, wo0]
+      - [g, cm0p, swclk]
+      - [h, gclk, io0]
+      - [i, ccl1, in0]
+  pa31:
+    pincodes: [e, g]
+    periph:
+      - [a, eic, extint11]
+      - [d, sercom1, pad3]
+      - [e, tcc1, wo1]
+      - [i, ccl1, out]
+  pb02:
+    pincodes: [g]
+    periph:
+      - [a, eic, extint2]
+      - [b, adc, ain10]
+      - [d, sercom5, pad0]
+      - [e, tc2, wo0]
+      - [h, supc, out1]
+      - [i, ccl0, out]
+  pb03:
+    pincodes: [g]
+    periph:
+      - [a, eic, extint3]
+      - [b, adc, ain11]
+      - [d, sercom5, pad1]
+      - [h, supc, vbat]
