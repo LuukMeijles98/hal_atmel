@@ -27,13 +27,13 @@
  *
  */
 
-#ifndef _SAML21_TRNG_COMPONENT_
-#define _SAML21_TRNG_COMPONENT_
+#ifndef _SAMR30_TRNG_COMPONENT_
+#define _SAMR30_TRNG_COMPONENT_
 
 /* ========================================================================== */
 /**  SOFTWARE API DEFINITION FOR TRNG */
 /* ========================================================================== */
-/** \addtogroup SAML21_TRNG True Random Generator */
+/** \addtogroup SAMR30_TRNG True Random Generator */
 /*@{*/
 
 #define TRNG_U2242
@@ -169,4 +169,4 @@ typedef struct {
 
 /*@}*/
 
-#endif /* _SAML21_TRNG_COMPONENT_ */
+#endif /* _SAMR30_TRNG_COMPONENT_ */
