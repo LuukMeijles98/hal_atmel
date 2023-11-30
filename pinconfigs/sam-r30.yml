@@ -364,9 +364,9 @@ pins:
     pincodes: [e, g]
     periph:
       - [a, eic, extint15]
-      - [d, sercom5, pad0]
+      - [d, sercom5, pad1]
       - [e, tcc0, wo0]
-      - [f, sercom4, pad2]
+      - [f, sercom4, pad1]
   pc16:
     pincodes: [e, g]
     periph:

@@ -742,16 +742,16 @@
 #define PB31A_EIC_EXTINT15 \
 	SAM_PINMUX(b, 31, a, periph)
 
-/* pb31d_sercom5_pad0 */
-#define PB31D_SERCOM5_PAD0 \
+/* pb31d_sercom5_pad1 */
+#define PB31D_SERCOM5_PAD1 \
 	SAM_PINMUX(b, 31, d, periph)
 
 /* pb31e_tcc0_wo0 */
 #define PB31E_TCC0_WO0 \
 	SAM_PINMUX(b, 31, e, periph)
 
-/* pb31f_sercom4_pad2 */
-#define PB31F_SERCOM4_PAD2 \
+/* pb31f_sercom4_pad1 */
+#define PB31F_SERCOM4_PAD1 \
 	SAM_PINMUX(b, 31, f, periph)
 
 /* pc16_gpio */
