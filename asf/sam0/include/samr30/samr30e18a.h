@@ -122,6 +122,8 @@ typedef enum IRQn
   ADC_IRQn                 = 22, /**< 22 SAMR30E18A Analog Digital Converter (ADC) */
   AC_IRQn                  = 23, /**< 23 SAMR30E18A Analog Comparators (AC) */
   PTC_IRQn                 = 25, /**< 25 SAMR30E18A Peripheral Touch Controller (PTC) */
+  AES_IRQn                 = 26, /**< 26 SAML21E15B Advanced Encryption Standard (AES) */
+  TRNG_IRQn                = 27, /**< 27 SAML21E15B True Random Generator (TRNG) */
 
   PERIPH_COUNT_IRQn        = 29  /**< Number of peripheral IDs */
 } IRQn_Type;
@@ -175,8 +177,8 @@ typedef struct _DeviceVectors
   void* pfnAC_Handler;                    /* 23 Analog Comparators */
   void* pvReserved24;
   void* pfnPTC_Handler;                   /* 25 Peripheral Touch Controller */
-  void* pvReserved26;
-  void* pvReserved27;
+  void* pfnAES_Handler;                   /* 26 Advanced Encryption Standard */
+  void* pfnTRNG_Handler;                  /* 27 True Random Generator */
   void* pvReserved28;
 } DeviceVectors;
 
@@ -212,6 +214,8 @@ void TC4_Handler                 ( void );
 void ADC_Handler                 ( void );
 void AC_Handler                  ( void );
 void PTC_Handler                 ( void );
+void AES_Handler                 ( void );
+void TRNG_Handler                ( void );
 
 /*
  * \brief Configuration of the Cortex-M0+ Processor and Core Peripherals
@@ -243,6 +247,7 @@ void PTC_Handler                 ( void );
 
 #include "component/ac.h"
 #include "component/adc.h"
+#include "component/aes.h"
 #include "component/ccl.h"
 #include "component/dmac.h"
 #include "component/dsu.h"
@@ -265,6 +270,7 @@ void PTC_Handler                 ( void );
 #include "component/tal.h"
 #include "component/tc.h"
 #include "component/tcc.h"
+#include "component/trng.h"
 #include "component/usb.h"
 #include "component/wdt.h"
 /*@}*/
@@ -277,6 +283,7 @@ void PTC_Handler                 ( void );
 
 #include "instance/ac.h"
 #include "instance/adc.h"
+#include "instance/aes.h"
 #include "instance/ccl.h"
 #include "instance/dmac.h"
 #include "instance/dsu.h"
@@ -308,6 +315,7 @@ void PTC_Handler                 ( void );
 #include "instance/tcc0.h"
 #include "instance/tcc1.h"
 #include "instance/tcc2.h"
+#include "instance/trng.h"
 #include "instance/usb.h"
 #include "instance/wdt.h"
 /*@}*/
@@ -349,6 +357,8 @@ void PTC_Handler                 ( void );
 #define ID_TCC2          71 /**< \brief Timer Counter Control 2 (TCC2) */
 #define ID_TC0           72 /**< \brief Basic Timer Counter 0 (TC0) */
 #define ID_TC1           73 /**< \brief Basic Timer Counter 1 (TC1) */
+#define ID_AES           77 /**< \brief Advanced Encryption Standard (AES) */
+#define ID_TRNG          78 /**< \brief True Random Generator (TRNG) */
 
 // Peripheral instances on HPB3 bridge
 #define ID_EVSYS         96 /**< \brief Event System Interface (EVSYS) */
@@ -375,6 +385,7 @@ void PTC_Handler                 ( void );
 #if defined(__ASSEMBLY__) || defined(__IAR_SYSTEMS_ASM__)
 #define AC                            (0x43001000UL) /**< \brief (AC) APB Base Address */
 #define ADC                           (0x43000C00UL) /**< \brief (ADC) APB Base Address */
+#define AES                           (0x42003400) /**< \brief (AES) APB Base Address */
 #define CCL                           (0x43001C00UL) /**< \brief (CCL) APB Base Address */
 #define DMAC                          (0x44000400UL) /**< \brief (DMAC) APB Base Address */
 #define DSU                           (0x41002000UL) /**< \brief (DSU) APB Base Address */
@@ -416,6 +427,7 @@ void PTC_Handler                 ( void );
 #define TCC0                          (0x42001400UL) /**< \brief (TCC0) APB Base Address */
 #define TCC1                          (0x42001800UL) /**< \brief (TCC1) APB Base Address */
 #define TCC2                          (0x42001C00UL) /**< \brief (TCC2) APB Base Address */
+#define TRNG                          (0x42003800) /**< \brief (TRNG) APB Base Address */
 #define USB                           (0x41000000UL) /**< \brief (USB) APB Base Address */
 #define WDT                           (0x40001C00UL) /**< \brief (WDT) APB Base Address */
 #else
@@ -426,6 +438,10 @@ void PTC_Handler                 ( void );
 #define ADC               ((Adc      *)0x43000C00UL) /**< \brief (ADC) APB Base Address */
 #define ADC_INST_NUM      1                          /**< \brief (ADC) Number of instances */
 #define ADC_INSTS         { ADC }                    /**< \brief (ADC) Instances List */
+
+#define AES               ((Aes      *)0x42003400UL) /**< \brief (AES) APB Base Address */
+#define AES_INST_NUM      1                          /**< \brief (AES) Number of instances */
+#define AES_INSTS         { AES }                    /**< \brief (AES) Instances List */
 
 #define CCL               ((Ccl      *)0x43001C00UL) /**< \brief (CCL) APB Base Address */
 #define CCL_INST_NUM      1                          /**< \brief (CCL) Number of instances */
@@ -537,6 +553,10 @@ void PTC_Handler                 ( void );
 #define TCC2              ((Tcc      *)0x42001C00UL) /**< \brief (TCC2) APB Base Address */
 #define TCC_INST_NUM      3                          /**< \brief (TCC) Number of instances */
 #define TCC_INSTS         { TCC0, TCC1, TCC2 }       /**< \brief (TCC) Instances List */
+
+#define TRNG              ((Trng     *)0x42003800UL) /**< \brief (TRNG) APB Base Address */
+#define TRNG_INST_NUM     1                          /**< \brief (TRNG) Number of instances */
+#define TRNG_INSTS        { TRNG }                   /**< \brief (TRNG) Instances List */
 
 #define USB               ((Usb      *)0x41000000UL) /**< \brief (USB) APB Base Address */
 #define USB_INST_NUM      1                          /**< \brief (USB) Number of instances */
